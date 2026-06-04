@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MarketOverview } from "../features/dashboard/MarketOverview.jsx";
 import { PriceChartCard } from "../features/dashboard/PriceChartCard.jsx";
+import { DashboardSymbolForm } from "../features/dashboard/DashboardSymbolForm.jsx";
 import { fetchMarketOverview } from "../services/market-api.js";
 import {
   createWatchlistItem,
@@ -142,41 +143,25 @@ export const DashboardPage = () => {
   return (
     <div className="row g-4">
       <div className="col-12">
-        <div className="paper-panel p-3 p-lg-4">
-          <form
-            className="row g-3 align-items-end"
-            onSubmit={(event) => {
-              event.preventDefault();
+        <DashboardSymbolForm
+          draftSymbol={draftSymbol}
+          onDraftSymbolChange={setDraftSymbol}
+          onSubmit={(event) => {
+            event.preventDefault();
 
-              if (!draftSymbol.trim()) {
-                setOverview(null);
-                setRequest(null);
-                return;
-              }
+            if (!draftSymbol.trim()) {
+              setOverview(null);
+              setRequest(null);
+              return;
+            }
 
-              setRequest({
-                symbol: draftSymbol.toUpperCase(),
-                forceRefresh: false,
-                requestId: Date.now(),
-              });
-            }}
-          >
-            <div className="col-md-4">
-              <label className="form-label form-label-paper">Symbol</label>
-              <input
-                className="form-control paper-input"
-                value={draftSymbol}
-                onChange={(event) => setDraftSymbol(event.target.value)}
-                placeholder="Ticker"
-              />
-            </div>
-            <div className="col-md-auto">
-              <button type="submit" className="btn paper-button fw-semibold">
-                Load live data
-              </button>
-            </div>
-          </form>
-        </div>
+            setRequest({
+              symbol: draftSymbol.toUpperCase(),
+              forceRefresh: false,
+              requestId: Date.now(),
+            });
+          }}
+        />
       </div>
 
       {request?.symbol ? (
