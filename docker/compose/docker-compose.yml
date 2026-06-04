@@ -1,0 +1,39 @@
+services:
+  api:
+    build:
+      context: ../../api
+    env_file:
+      - ../env/api.env.example
+      - ../../.env
+    command: npm run dev
+    ports:
+      - "3001:3001"
+    volumes:
+      - ../../api/src:/app/src
+      - ../../api/package.json:/app/package.json:ro
+      - ../../api/package-lock.json:/app/package-lock.json:ro
+      - ../../.env:/app/.env.runtime:ro
+      - ../../data/sqlite:/app/data
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+
+  frontend:
+    build:
+      context: ../../frontend
+    env_file:
+      - ../env/frontend.env.example
+    command: npm run dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ../../frontend/src:/app/src
+      - ../../frontend/public:/app/public
+      - ../../frontend/index.html:/app/index.html:ro
+      - ../../frontend/vite.config.js:/app/vite.config.js:ro
+      - ../../frontend/package.json:/app/package.json:ro
+      - ../../frontend/package-lock.json:/app/package-lock.json:ro
+    depends_on:
+      - api
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+      WATCHPACK_POLLING: "true"

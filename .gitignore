@@ -1,0 +1,16 @@
+node_modules
+dist
+.DS_Store
+.env
+.env.*
+!.env.example
+!*.env.example
+api/.env
+api/.env.*
+frontend/.env
+frontend/.env.*
+api/broker.db
+data/sqlite/*.db
+data/sqlite/*.db-*
+coverage
+archiv/

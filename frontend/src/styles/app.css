@@ -1,0 +1,529 @@
+:root {
+  color-scheme: light;
+  --paper: #f2f2f2;
+  --ink: #111111;
+  --muted: #5f5a52;
+  --rule: #1d1d1d;
+  --rule-soft: #d4d0c7;
+  --positive: #1e4d2b;
+  --negative: #8f1d1d;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+.site-header {
+  border-top: 3px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.25rem;
+}
+
+.site-header-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.header-meta {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.masthead {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  max-width: 16ch;
+}
+
+.deck {
+  max-width: 44rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.section-nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule-soft);
+}
+
+.newspaper-nav-link {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.newspaper-nav-link.is-active {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.eyebrow {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.section-title {
+  font-size: 1.55rem;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.subhead,
+.body-muted {
+  color: var(--muted);
+}
+
+.paper-panel {
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.section-rule {
+  border-top: 1px solid var(--rule-soft);
+}
+
+.price-change.is-up,
+.quote-ok {
+  color: var(--positive);
+}
+
+.price-change.is-down,
+.paper-warning {
+  color: var(--negative);
+}
+
+.price-line {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.metric-card {
+  border-top: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 1rem;
+  background: transparent;
+}
+
+.form-control,
+.form-control:focus,
+.form-control::placeholder {
+  color: var(--ink);
+}
+
+.form-label-paper {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.form-error-text {
+  display: block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.74rem;
+  line-height: 1.35;
+  color: #7b1e1e;
+  margin-top: 0.25rem;
+  padding-left: 0.1rem;
+}
+
+.idea-form-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 720px) {
+  .idea-form-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.paper-input {
+  border: 1px solid var(--rule-soft);
+  border-radius: 0;
+  background: white;
+}
+
+.paper-input:focus {
+  background: white;
+  border-color: var(--rule);
+  box-shadow: none;
+}
+
+.paper-button,
+.paper-button-secondary {
+  border-radius: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+.paper-button {
+  background: var(--ink);
+  color: white;
+  border: 1px solid var(--ink);
+}
+
+.paper-button:hover,
+.paper-button:focus {
+  background: #2a2a2a;
+  color: white;
+  border-color: #2a2a2a;
+}
+
+.paper-button-secondary {
+  background: white;
+  color: var(--ink);
+  border: 1px solid var(--rule-soft);
+}
+
+.paper-button-secondary:hover,
+.paper-button-secondary:focus {
+  background: #f3f1ea;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+
+.paper-icon-button {
+  min-width: 2rem;
+  min-height: 2rem;
+  border-radius: 0;
+  border: 1px solid var(--rule-soft);
+  background: white;
+  color: var(--ink);
+  padding: 0.15rem 0.45rem;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paper-icon-button:hover,
+.paper-icon-button:focus {
+  background: #f3f1ea;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+
+.paper-icon-button.is-active {
+  background: var(--ink);
+  color: #ffffff;
+  border-color: var(--ink);
+}
+
+.paper-icon-button-filled {
+  background: var(--ink);
+  color: #ffffff;
+  border-color: var(--ink);
+}
+
+.paper-icon-button-filled:hover,
+.paper-icon-button-filled:focus {
+  background: #2a2a2a;
+  color: #ffffff;
+  border-color: #2a2a2a;
+}
+
+.paper-trash-button {
+  margin-left: 0.35rem;
+}
+
+.idea-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.idea-entry {
+  border-top: 1px solid var(--rule-soft);
+  padding-top: 1rem;
+}
+
+.idea-entry:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.idea-entry-ticker {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.idea-entry-company-inline {
+  font-size: 0.92rem;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.idea-entry-title {
+  font-size: 1.05rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.idea-entry-meta {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-left: 0;
+}
+
+.idea-entry-body {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.idea-entry-outcome-wrap {
+  text-align: right;
+}
+
+.idea-entry-outcome-value {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--positive);
+}
+
+.idea-status-actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.fa-icon {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.fa-icon-stop {
+  font-size: 0.95rem;
+}
+
+.fa-icon-pause {
+  font-size: 0.82rem;
+}
+
+.fa-icon-play {
+  font-size: 0.92rem;
+}
+
+@media (max-width: 720px) {
+  .idea-entry-outcome-wrap {
+    text-align: left;
+  }
+}
+
+.idea-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.idea-link {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.idea-entry {
+  scroll-margin-top: 1.5rem;
+}
+
+.template-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.template-entry {
+  border-top: 1px solid var(--rule-soft);
+  padding-top: 1.25rem;
+}
+
+.template-entry:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.template-title {
+  font-size: 1.05rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.paper-checkbox {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--ink);
+}
+
+.archive-box {
+  border-top: 1px solid #ece8de;
+  padding-top: 1.25rem;
+}
+
+.newspaper-table {
+  font-size: 0.92rem;
+}
+
+.newspaper-badge {
+  display: inline-block;
+  border: 1px solid var(--rule-soft);
+  padding: 0.3rem 0.55rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.provider-chip,
+.quote-meta {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+}
+
+.provider-chip {
+  display: inline-block;
+  border: 1px solid var(--rule-soft);
+  padding: 0.15rem 0.4rem;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: #f8f8f8;
+}
+
+.quote-meta {
+  color: var(--muted);
+  margin-top: 0.45rem;
+}
+
+.watchlist-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.watchlist-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.watchlist-exchange {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.watchlist-cache {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+
+.cache-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid #ece8de;
+  padding-top: 0.9rem;
+}
+
+.cache-reload {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.dashboard-live-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.newspaper-table {
+  color: var(--ink);
+}
+
+.newspaper-table thead th {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+}
+
+.newspaper-table tbody td {
+  border-bottom: 1px solid #ece8de;
+  vertical-align: top;
+}
+
+.table > :not(caption) > * > * {
+  background: transparent;
+}
+
+@media (max-width: 991.98px) {
+  .site-header-top {
+    flex-direction: column;
+  }
+
+  .masthead {
+    max-width: none;
+  }
+}
